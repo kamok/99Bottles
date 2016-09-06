@@ -8,14 +8,10 @@ class Bottles
     lines(num_of_bottles)
   end
 
-  def verses(num1,num2)
-    output = []
-    length = (num2..num1).to_a.count
-
-    (num2..num1).to_a.reverse.each_with_index do |num, index|
-      output << lines(num) + (length - index > 1 ? "\n" : "")
-    end
-    output.join
+  def verses(upper, lower)
+    (lower..upper).to_a.reverse.map do |verse_num|
+      verse(verse_num)
+    end.join("\n")
   end
 
   private
